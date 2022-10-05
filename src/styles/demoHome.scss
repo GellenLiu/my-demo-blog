@@ -1,0 +1,51 @@
+@import './layout.scss';
+
+.demoHome {
+    color: $color-black;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 50px;
+    border-bottom: 1px solid $border-color-gray;
+    z-index: 50px;
+
+    .logo {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        font-size: $font-size-m;
+        img {
+            height: 40px;
+            width: 40px;
+        } 
+    }
+}
+.main {
+    display: flex;
+    padding-top: 50px;
+    width: 100%;
+    min-height: calc(100vh - 50px);
+}
+.aside {
+    width: 200px;
+    border-right: 1px solid $border-color-gray;
+    
+    .router-list-item {
+        height: 50px;
+        line-height: 50px;
+        &:hover {
+            background-color: rgba(77, 166, 234, .6);
+        }
+    }
+}
+.content {
+    flex: 1;
+    padding: 20px;
+}

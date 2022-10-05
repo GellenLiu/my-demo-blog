@@ -1,0 +1,39 @@
+@import './layout.scss';
+.projectList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: $color-black;
+    cursor: url(../assets/cursor-1.png), auto;
+
+}
+.list-wrap {
+}
+.item-wrap {
+   width: 200px;
+   height: 60px;
+   margin: 30px auto;
+   border-radius: 8px;
+   border: 1px solid $border-color-gray;
+
+   &:hover {
+      border: 1px solid $border-color-green;
+   }
+
+   .item-label {
+    font-size: $font-size-m;
+    color: $color-white;
+   }
+
+   .item-desc {
+    font-size: $font-size-xs;
+    color: $color-white;
+   }
+
+}
+.btn-click-light {
+    width: 300px;
+    background-color: white;
+}

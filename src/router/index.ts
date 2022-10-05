@@ -1,6 +1,9 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
+import projectList from '@/views/projectList.vue';
+import demoHome from '@/views/demoHome.vue';
+import copy from '@/views/javascript/copy.vue';
 
 Vue.use(VueRouter);
 
@@ -11,10 +14,23 @@ const routes: Array<RouteConfig> = [
     component: Home,
   },
   {
-    path: "/share-screen",
-    name: "shareScreen",
-    component: () =>
-      import("../views/shareScreen/index.vue"),
+    path: "/projectList",
+    name: "projectList",
+    component: projectList,
+  },
+  {
+    path: "/my-demo-blog",
+    component: demoHome,
+    children: [
+      {
+        path: "/copy",
+        component: copy
+      }
+    ]
+  },
+  {
+    path: "/copy",
+    component: copy
   },
   {
     path: "/about",
@@ -25,7 +41,7 @@ const routes: Array<RouteConfig> = [
 ];
 
 const router = new VueRouter({
-  mode: "history",
+  mode: "hash",
   base: process.env.BASE_URL,
   routes,
 });
