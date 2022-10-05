@@ -6133,6 +6133,18 @@
   "resolved" "https://packages.aliyun.com/6128d2e757e7cd986dfae5ab/npm/npm-registry/mkdirp/-/mkdirp-1.0.4.tgz"
   "version" "1.0.4"
 
+"monaco-editor-webpack-plugin@^1.9.0":
+  "integrity" "sha512-tOiiToc94E1sb50BgZ8q8WK/bxus77SRrwCqIpAB5er3cpX78SULbEBY4YPOB8kDolOzKRt30WIHG/D6gz69Ww=="
+  "resolved" "https://registry.npmmirror.com/monaco-editor-webpack-plugin/-/monaco-editor-webpack-plugin-1.9.0.tgz"
+  "version" "1.9.0"
+  dependencies:
+    "loader-utils" "^1.2.3"
+
+"monaco-editor@^0.20.0":
+  "integrity" "sha512-hkvf4EtPJRMQlPC3UbMoRs0vTAFAYdzFQ+gpMb8A+9znae1c43q8Mab9iVsgTcg/4PNiLGGn3SlDIa8uvK1FIQ=="
+  "resolved" "https://registry.npmmirror.com/monaco-editor/-/monaco-editor-0.20.0.tgz"
+  "version" "0.20.0"
+
 "move-concurrently@^1.0.1":
   "integrity" "sha512-hdrFxZOycD/g6A6SoI2bB5NA/5NEqD0569+S47WZhPvm46sD50ZHdYaFmnua5lndde9rCHGjmfK7Z8BuCt/PcQ=="
   "resolved" "https://registry.npmmirror.com/move-concurrently/-/move-concurrently-1.0.1.tgz"

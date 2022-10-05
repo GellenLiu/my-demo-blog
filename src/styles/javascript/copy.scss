@@ -1,3 +1,5 @@
+@import '../layout.scss';
+
 .demo-content {
   text-align: left;
 }
@@ -10,4 +12,29 @@ textarea {
     height: 300px;
     width: 80%;
     border: 1px solid rgb(41, 167, 206);
+}
+.code-wrap {
+    height: 500px;
+
+    .editor {
+      height: 500px;
+    }
+}
+.code-header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .copy-btn {
+    height: 30px;
+    width: 80px;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid $border-color-gray;
+
+    &:hover {
+    border: 1px solid $border-color-green;
+    }
+  }
 }
