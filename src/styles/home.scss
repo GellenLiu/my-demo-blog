@@ -170,6 +170,16 @@
         opacity: .02;
     }
   }
+  .img-box {
+    position: relative;
+    transform-style: preserve-3d;  // 开启3d渲染
+
+    img {
+        transform-origin: 20% 30%;
+        transform: rotateX(-1deg); // 3d 倾斜1deg，让ball层级遮挡
+    }
+
+  }
   .img-box,.img-box img{
     height: 600px;
     width: 380px;	
@@ -282,55 +292,6 @@
     height: 33px;
     width: 33px;
   }
-  .left-wing{
-   position: relative;
-    left: 4px;
-    width: 2px;
-    height: 2px;
-     /* border-radius: 50% 20% 20% 50%; */
-     /* transform: scale(1.5,.5); */
-     /* background-color: #FFFFFF; */
-    border-top: 10px solid transparent;
-     border-right: 40px solid white;
-     border-bottom: 10px solid transparent;
-     transform-origin: right;
-     animation-name: fly;
-     animation-duration: 0.002s;
-     animation-iteration-count: infinite;
-  }
-  .right-wing{
-     width: 2px;
-     height: 2px;
-     border-top: 10px solid transparent;
-     border-left: 40px solid white;
-     border-bottom: 10px solid transparent;
-     transform-origin: left;
-     animation-name: fly;
-     animation-duration: 0.002s;
-     animation-iteration-count: infinite;
-  }
-  @keyframes fly{
-      0%{
-          transform: rotate(0deg);
-      }
-      25%{
-          transform: rotate(30deg);
-          border-bottom: 5px solid transparent;
-          border-top: 5px solid transparent;
-      }
-      50%{
-          transform: rotate(0deg);
-          
-      }
-      75%{
-          transform: rotate(-30deg);
-          border-bottom: 5px solid transparent;
-          border-top: 5px solid transparent;
-      }
-      100%{
-          transform: rotate(0deg);
-      }
-  }
   .ball-box{
       position: absolute;
       left: 900px;
@@ -340,16 +301,6 @@
       border-radius: 50%;
       animation: movey 4s infinite linear;
       /* transform-origin: 100px 0 0; */
-  }
-  .ball{
-    
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    // background-image: url(../../assets/ball.png);
-    animation: circle 4s infinite linear;
-    transform-origin: 100px 50%;
-    transform-style: preserve-3d;
   }
   /* 平面旋转 */
   @keyframes circle{
@@ -391,32 +342,6 @@
           transform: rotateY(360deg);
       }
   }
-  @keyframes movey{
-          
-      0%{
-          transform: translate(0,0);
-      }
-      25%{
-          transform: translate(0,50px);
-      }
-      50%{
-          transform: translate(0,0);
-      }
-      75%{
-          transform: translate(0,-50px);
-      }
-      100%{
-          transform: translate(0,0);
-      }
-  }
-      
-  .trans{
-      height: 100px;
-      width: 100px;
-      border-radius: 50%;
-      background-color: #F4F5F5;
-      animation: scale 2s infinite linear;
-  }
   @keyframes scale{
       from{
           transform: scale(1,1);
@@ -427,4 +352,76 @@
       to{
           transform: scale(1.5,1.5);
       }
+  }
+  .ball-wrap {
+    position: absolute;
+    top: 50px;
+    width: 600px;
+    height: 600px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .planet {
+    position: absolute;
+    // border: 2px solid #fff;
+    transform-style: preserve-3d;
+    width: 400px;
+    height: 400px;
+    // transform: rotateZ(45deg);
+    border-radius: 50%;
+    transform: scaleY(0.25) rotateZ(30deg);
+    animation: planet-rotate 4s linear infinite;
+  }
+  
+  .ball {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: calc(50% - 25px);
+    top: -25px;
+    border-radius: 50%;
+    background-color: yellowgreen;
+    // transform: rotateZ(-45deg); // 中和轨道的旋转,抵消
+    transform: rotateZ(-30deg) scaleY(4);// 抵消缩放
+    animation: self-rotate 4s linear infinite, ballColorChange 1s infinite;
+    background: url('../assets/img/earch.svg') no-repeat 0 0;
+    background-size: cover;
+    // animation-play-state: ;
+    box-shadow: 0 0 10px #0ebeff, 0 0 20px #0ebeff, 0 0 30px #0ebeff, 0 0 50px #0ebeff;
+
+  }
+  @keyframes ballColorChange {
+    0% {
+        filter: hue-rotate(60deg);
+    }
+    100% {
+        filter: hue-rotate(60deg);
+    }
+  }
+  // 公转动画
+@keyframes planet-rotate {
+    0% {
+      transform:  scaleY(0.5) rotate(0);
+    }
+    100% {
+      transform:  scaleY(0.5) rotate(360deg);
+    }
+  }
+  
+  // 自转动画
+  @keyframes self-rotate {
+    0% {
+      transform: rotate(0) scaleY(2);
+      z-index: 0;
+    }
+    40% {
+      z-index: 2;
+    }
+    80% {
+        z-index: 0;
+    }
+    100% {
+      transform: rotate(-360deg) scaleY(2);
+    }
   }
