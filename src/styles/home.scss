@@ -12,25 +12,14 @@
     font-size: $font-size-xxl;
     color: $color-white;
 }
-.start-btn {
-    height: 50px;
-    width: 150px;
-    font-size: $font-size-xl;
-    color: $color-white;
-    line-height: 50px;
-    border-radius: 8px;
-    border: 1px solid $border-color-gray;
-
-    &:hover {
-        border: 1px solid $border-color-green;
-    }
-}
 .black-hall {
-   width: 1000px;
-   height: 1000px;
-   animation: rotates 5s linear forwards;
-   position:fixed;
-   z-index:305;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    animation: rotates 2s linear forwards;
+    z-index:305;
 }
 @keyframes rotates {
     0% {
@@ -40,3 +29,402 @@
         transform: rotate(360deg) scale(0);
     }
 }
+.page{
+    position: relative;
+    display: flex;	
+    height: 668px;
+    width: 1366px;
+    margin: 0 auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../assets/bg1.jpg);
+    overflow: hidden;
+  }
+  .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 600px;
+    width: 800px;	
+    
+  }
+  .title{
+    height: 80px;
+    width: 100%;
+    margin: 30px 0 0 100px;
+    font-size: 60px;
+    text-align: left;
+    @supports (-webkit-background-clip: text) or (background-clip: text) {
+		background: linear-gradient(to right, red, blue);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+    }
+    background-size: cover;
+    animation: fontColorChange 5s infinite;
+  }
+  @keyframes fontColorChange {
+     0% {
+		filter: hue-rotate(0);
+     }
+     100% {
+		filter: hue-rotate(360deg);
+     }
+  }
+    .sub-title{
+    height: 50px;
+    margin: 0 0 0 100px;
+    font-size: 30px;
+    opacity: 0.5;
+    text-align: left;
+    color: white;
+    font-style: italic;
+  }
+  // 按钮氖光特效
+  .start-btn{
+    position: relative;
+    height: 60px;
+    margin: 10px 0 0 100px;
+    font-size: 40px;
+    color: #fff;
+    text-align: left;
+    transition: .2;
+    
+
+    &:hover {
+        text-shadow: 0 0 10px #0ebeff, 0 0 20px #0ebeff, 0 0 50px #0ebeff, 0 0 100px #0ebeff, 0 0 200px #0ebeff;    }
+  }
+  // 波纹特效
+  .start-btn::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    top: -30%;
+    margin-left: -50px;
+    background: #4892Fb;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 0;
+    box-shadow: 1px 1px 15px #3399ff;
+    animation: wave1 1.5s linear infinite;
+  }
+  .start-btn::before {
+    content: '';
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    left: 50%;
+    top: -60%;
+    margin-left: -70px;
+    background: #4892Fb;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 0;
+    box-shadow: 1px 1px 15px #3399ff;
+    animation: wave2 1.5s linear infinite;
+  }
+  @keyframes wave1 {
+    0% {
+        transform: scale(0);
+        opacity: .01;
+    }
+    25% {
+        transform: scale(.5);
+        opacity: .1;
+    }
+    50% {
+        transform: scale(.7);
+        opacity: .3;
+    }
+    75% {
+        transform: scale(.9);
+        opacity: .1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: .01;
+    }
+  }
+  @keyframes wave2 {
+    0% {
+        transform: scale(.8);
+        opacity: .013;
+    }
+    25% {
+        transform: scale(.8);
+        opacity: .1;
+    }
+    50% {
+        transform: scale(1);
+        opacity: .2;
+    }
+    75% {
+        transform: scale(1.2);
+        opacity: .1;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: .02;
+    }
+  }
+  .img-box,.img-box img{
+    height: 600px;
+    width: 380px;	
+    margin: 40px 0 0 0;
+    z-index: 1;
+  }
+  .fly{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 150px;
+    animation-name: move;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  @keyframes move{
+      0%{
+          top: 150px;
+          left: 750px;
+          z-index: 2;
+      }
+      5%{
+          top: 200px;
+          left: 800px;
+          z-index: 2;
+      }
+      10%{
+          top: 220px;
+          left: 855px;
+          z-index: 2;
+      }
+      20%{
+          top: 230px;
+          left: 905px;
+          z-index: 2;
+      }
+      25%{
+          top: 250px;
+          left: 950px;
+          z-index: 2;
+      }
+      30%{
+          top: 240px;
+          left: 1000px;
+          z-index: 2;
+      }
+      40%{
+          top: 200px;
+          left: 1050px;
+          z-index: 2;
+      }
+          
+      45%{
+          top: 180px;
+          left: 1100px;
+          z-index: 2;
+      }
+      50%{
+          top: 150px;
+          left: 1150px;
+          z-index: 2;
+          /* transform: rotateY(60deg); */
+      }
+      60%{
+          top: 130px;
+          left: 1100px;
+          z-index: 0;
+      }
+      70%{
+          top: 120px;
+          left: 1050px;
+          z-index: 0;
+      }
+      75%{
+          top: 100px;
+          left: 1000px;
+          z-index: 0;
+      }
+      80%{
+          top: 110px;
+          left: 950px;
+          z-index: 0;
+      }
+      85%{
+          top: 120px;
+          left: 900px;
+          z-index: 0;
+      }
+      90%{
+          top: 130px;
+          left: 850px;
+          z-index: 0;
+      }
+      95%{
+          top: 140px;
+          left: 800px;
+          z-index: 0;
+      }
+      100%{
+          top: 150px;
+          left: 750px;
+      }
+      to{}
+  }
+      
+  .fly img{
+    height: 33px;
+    width: 33px;
+  }
+  .left-wing{
+   position: relative;
+    left: 4px;
+    width: 2px;
+    height: 2px;
+     /* border-radius: 50% 20% 20% 50%; */
+     /* transform: scale(1.5,.5); */
+     /* background-color: #FFFFFF; */
+    border-top: 10px solid transparent;
+     border-right: 40px solid white;
+     border-bottom: 10px solid transparent;
+     transform-origin: right;
+     animation-name: fly;
+     animation-duration: 0.002s;
+     animation-iteration-count: infinite;
+  }
+  .right-wing{
+     width: 2px;
+     height: 2px;
+     border-top: 10px solid transparent;
+     border-left: 40px solid white;
+     border-bottom: 10px solid transparent;
+     transform-origin: left;
+     animation-name: fly;
+     animation-duration: 0.002s;
+     animation-iteration-count: infinite;
+  }
+  @keyframes fly{
+      0%{
+          transform: rotate(0deg);
+      }
+      25%{
+          transform: rotate(30deg);
+          border-bottom: 5px solid transparent;
+          border-top: 5px solid transparent;
+      }
+      50%{
+          transform: rotate(0deg);
+          
+      }
+      75%{
+          transform: rotate(-30deg);
+          border-bottom: 5px solid transparent;
+          border-top: 5px solid transparent;
+      }
+      100%{
+          transform: rotate(0deg);
+      }
+  }
+  .ball-box{
+      position: absolute;
+      left: 900px;
+      top: 500px;
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      animation: movey 4s infinite linear;
+      /* transform-origin: 100px 0 0; */
+  }
+  .ball{
+    
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    // background-image: url(../../assets/ball.png);
+    animation: circle 4s infinite linear;
+    transform-origin: 100px 50%;
+    transform-style: preserve-3d;
+  }
+  /* 平面旋转 */
+  @keyframes circle{
+      from{
+          transform: rotate(0);
+      }
+      25%{
+          z-index: 0;
+      }
+      50%{
+          z-index: 0;
+      }
+      75%{
+          z-index: 2;
+      }
+      to{
+          z-index: 2;
+          transform: rotate(360deg) ;
+      }
+  }
+  /* 3D旋转 */
+  @keyframes circle3d{
+      from{
+          transform: rotateY(0);
+      }
+      25%{
+          z-index: 2;
+      
+      }
+      50%{
+          z-index: 2;
+      
+      }
+      75%{
+          z-index: 0;
+      }
+      to{
+          z-index: 0;
+          transform: rotateY(360deg);
+      }
+  }
+  @keyframes movey{
+          
+      0%{
+          transform: translate(0,0);
+      }
+      25%{
+          transform: translate(0,50px);
+      }
+      50%{
+          transform: translate(0,0);
+      }
+      75%{
+          transform: translate(0,-50px);
+      }
+      100%{
+          transform: translate(0,0);
+      }
+  }
+      
+  .trans{
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      background-color: #F4F5F5;
+      animation: scale 2s infinite linear;
+  }
+  @keyframes scale{
+      from{
+          transform: scale(1,1);
+      }
+      50%{
+          transform: scale(.5,.5);
+      }
+      to{
+          transform: scale(1.5,1.5);
+      }
+  }

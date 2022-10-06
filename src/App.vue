@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view/>
+    <transition name="scale" mode="out-in">
+      <router-view/>
+    </transition>
   </div>
 </template>
 <script lang="ts">

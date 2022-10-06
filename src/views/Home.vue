@@ -1,19 +1,31 @@
 <template>
   <div class="home">
-    <header></header>
-    <div class="main">
-      <div class="main-left">
-        <div class="title">Welcome To My World</div>
-      <div class="start-btn" @click="start">Start</div>
-      </div>
-      <div class="main-right">
-        <div class="img-box">
-          <img/>
-        </div>
-      </div>
-      <img v-if="showBlackHall" class="black-hall" src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/yunying/blackhole/img/blackhole2019_pc.png"/>
+    <div class="page">
+		<div class="content">
+		  	<div class="title">HI , I AM Gellen Liu</div>
+		    <div class="sub-title">welcome to my world</div>
+		    <div class="start-btn" @click="start">start</div>
+		</div>
+		<div class="img-box">
+			<img src="../../public/man.png"/>
+		</div>
+		<div class="fly">
+			<div class="left-wing"></div>
+			<img src="../../public/qihang.png"/>
+			<div class="right-wing"></div>
+		</div>
+    <div id="blackHall" class="black-hall">
+      <img v-if="showBlackHall" :key="freshDom" src="../../public/blackhole2019_pc.png"/>
     </div>
-    <footer></footer>
+<!-- 	<div class="ball-box">
+			<div class="ball"></div>
+		</div> -->
+		<!-- <div class="trans">
+			
+		</div> -->
+		 
+ 
+	</div>
   </div>
 </template>
 
@@ -28,11 +40,20 @@ import HelloWorld from '@/components/HelloWorld.vue';
 })
 export default class Home extends Vue {
   showBlackHall = false;
+  freshDom = Symbol()
 
   start() {
-    console.log('start...');
-    this.showBlackHall = true;
-    this.$router.push('/projectList')
+    let that = this;
+    that.$router.push('/projectList')
+
+    // this.showBlackHall = true;
+    // let blackHall = document.getElementById('blackHall');
+    // console.log(blackHall)
+    // blackHall?.addEventListener('animationend', ()=> {
+    //   this.showBlackHall = false;
+    //   that.freshDom = Symbol();
+    //   that.$router.push('/projectList')
+    // }, false)
   }
 }
 </script>

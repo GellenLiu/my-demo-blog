@@ -2,6 +2,7 @@
 
 .demoHome {
     color: $color-black;
+    background-color: white;
 }
 .header {
     position: fixed;
@@ -15,16 +16,28 @@
     height: 50px;
     border-bottom: 1px solid $border-color-gray;
     z-index: 50px;
+    .left {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
 
     .logo {
         display: flex;
-        justify-content: start;
+        justify-content: flex-start;
         align-items: center;
         font-size: $font-size-m;
         img {
             height: 40px;
             width: 40px;
         } 
+    }
+    .go-home {
+        display: inline-block;
+        img {
+            height: 30px;
+            width: 30px;
+        }
     }
 }
 .main {
@@ -35,6 +48,7 @@
 }
 .aside {
     width: 200px;
+    padding: 15px;
     border-right: 1px solid $border-color-gray;
     
     .router-list-item {
@@ -48,4 +62,10 @@
 .content {
     flex: 1;
     padding: 20px;
+}
+.aside-header {
+    ::v-deep input {
+      width: 60%;
+      height: 30px;
+    }
 }

@@ -1,10 +1,14 @@
 <template>
     <div class="demoHome">
         <div class="header">
-            <div class="logo">
-                <img src="@/assets/logo.png" />
-                <span>my-demo-blog</span>
+            <div class="left">
+                <div class="logo">
+                    <img src="@/assets/logo.png" />
+                    <span>my-demo-blog</span>
+                </div>
+                <div class="go-home" @click="goHome"><img src="@/assets/img/home.svg"></img></div>
             </div>
+            <div class="right"></div>
         </div>
         <div class="main">
             <div class="aside">
@@ -44,8 +48,13 @@
                     </el-dropdown>
                 </div>
                 <div class="aside-content">
-                    <div class="router-list-item" v-for="(item, index) in routerList" :key="index" @click="goRouter(item.path)">
-                        <div>{{item.label}}</div>
+                    <div
+                        class="router-list-item"
+                        v-for="(item, index) in routerList"
+                        :key="index"
+                        @click="goRouter(item.path)"
+                    >
+                        <div>{{ item.label }}</div>
                     </div>
                 </div>
             </div>
@@ -70,14 +79,18 @@ import routerListData from '@/data/routerListData';
 export default class TemplateCnp extends Vue {
     searchValue = '';
     options = [];
-    remoteMethod() {};
+    remoteMethod() {}
     routerList = routerListData;
     mounted() {
-        console.log(this.routerList)
-    };
+        console.log(this.routerList);
+    }
     goRouter(path: string) {
         let that = this;
-        that.$router.push(`${path}`)
+        that.$router.push(`${path}`);
+    }
+    goHome() {
+        let that =this;
+        that.$router.push('/')
     }
 }
 </script>

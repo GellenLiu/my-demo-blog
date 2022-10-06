@@ -33,7 +33,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-  ],
+, "src/data/codes/shareScreen/index.js", "src/data/codes/shareScreen/index.js"  ],
   "exclude": [
     "node_modules"
   ]
