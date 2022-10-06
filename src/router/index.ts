@@ -25,12 +25,13 @@ const routes: Array<RouteConfig> = [
       {
         path: "/copy",
         component: copy
+      },
+      {
+        path: "/shareScreen",
+        component: () =>
+        import("../views/shareScreen/index.vue")
       }
     ]
-  },
-  {
-    path: "/copy",
-    component: copy
   },
   {
     path: "/about",

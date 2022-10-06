@@ -5,7 +5,7 @@ export default [
     },
     {
         label: '共享屏幕',
-        path: '/my-demo-blog/shareScreen'
+        path: '/shareScreen'
     },
     {
         label: '共享屏幕',

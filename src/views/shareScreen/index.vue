@@ -5,16 +5,29 @@
       <div class="start-btn" @click="startShare">开始共享</div>
       <div class="stop-btn" @click="stopShare">结束共享</div>
     </div>
+    <div class="code-wrap">
+            <div class="code-header-wrap">
+                <div class="code-title">Code Demo:</div>
+                <div class="copy-btn" @click="copyCodeContent">copy</div>
+            </div>
+            <Editor class="editor" :codes="codeContent" :readOnly="true"></Editor>
+        </div>
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import Editor from '@/components/monacoEditor.vue';
+import utils from '@/utils/utils';
+import { Message } from 'element-ui';
+import codes from '@/data/codes/shareScreen/index';
 
 @Component({
-  components: {},
+  components: {Editor},
 })
 export default class ShareScreen extends Vue {
-  mounted() {}
+  mounted() {
+    console.log(codes)
+  }
 
   stream: any = null;
   startShare() {
@@ -67,6 +80,15 @@ onremovetrack: null
 
   pushStream() {
     // 通过webRTC进行推流
+  }
+  codeContent = codes as string;
+  copyCodeContent() {
+    utils.copy(this.codeContent, () => {
+                Message.success('复制成功');
+            },
+            () => {
+                Message.error('复制失败');
+            });
   }
 }
 </script>
