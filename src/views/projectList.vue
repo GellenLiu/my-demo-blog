@@ -1,26 +1,25 @@
 <template>
     <div class="projectList">
         <div class="list-wrap">
-            <div v-for="(item, index) in itemList" :key="index">
-            <div class="item-wrap" @click="goRouter(item.path)">
-                <div class="item-label">{{item.label}}</div>
-                <div class="item-desc">{{item.desc}}</div>
+            <div @click="goRouter(item.path, key)" v-for="(item, key) in itemList" :key="key">
+                <div :class="index == key ? 'light-animate' : ''">
+                    <div class="item-wrap" >
+                    <div class="item-label">{{ item.label }}</div>
+                    <div class="item-desc">{{ item.desc }}</div>
+                </div>
+                </div>
             </div>
         </div>
-        </div>
     </div>
-  </template>
+</template>
   
-  <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
-  import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-  
-  @Component({
-    components: {
-      HelloWorld,
-    },
-  })
-  export default class TemplateCnp extends Vue {
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component({
+    components: {}
+})
+export default class TemplateCnp extends Vue {
     itemList = [
         {
             label: 'my-demo-blog',
@@ -33,10 +32,18 @@
             path: ''
         }
     ];
-    goRouter(path: string) {
-        this.$router.push(path);
+    clicked = false;
+    index = -1;
+
+    goRouter(path: string, index: any) {
+        let that = this;
+        that.clicked = true;
+        that.index = index;
+        setTimeout(()=>{
+            that.$router.push(path);
+        }, 200)
     }
-  }
-  </script>
-  <style lang="scss" scoped src="@/styles/projectList.scss"></style>
+}
+</script>
+<style lang="scss" scoped src="@/styles/projectList.scss"></style>
   

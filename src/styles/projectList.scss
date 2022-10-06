@@ -11,12 +11,18 @@
 }
 .list-wrap {
 }
+.light-animate {
+    position: relative;
+}
 .item-wrap {
+    position: relative;
    width: 200px;
    height: 60px;
    margin: 30px auto;
    border-radius: 8px;
+   z-index: 1;
    border: 1px solid $border-color-gray;
+   background: #000;
 
    &:hover {
       border: 1px solid $border-color-green;
@@ -35,7 +41,34 @@
    }
 
 }
+.light-animate:after {
+   content: '';
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -5px) scale(100, 1);
+   display: block;
+   width: 8px;
+   height: 2px;
+   border-radius: 99999px;
+   background-color: white;
+   z-index: 0;
+   opacity: 0;
+   transition: all .2;
+   animation: light .08s forwards linear;
+   box-shadow: 0 0 10px #0ebeff;
+}
+@keyframes light {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -5px) scale(0, 1);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -5px) scale(100, 1);
+    }
+}
 .btn-click-light {
     width: 300px;
-    background-color: white;
+    background-color: rgb(214, 22, 22);
 }
