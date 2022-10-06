@@ -2,10 +2,11 @@
     <div class="demo-content">
         <div class="text-area-container">
             <input type="input" v-model="inputValue" />
+            <div class="btn-wrap">
+                <div class="btn" @click="copyClick">copy</div>
+            </div>
         </div>
-        <div class="btn-wrap">
-            <div class="btn" @click="copyClick">copy</div>
-        </div>
+        <div>粘贴验证区域：</div>
         <textarea></textarea>
         <div class="code-wrap">
             <div class="code-header-wrap">
