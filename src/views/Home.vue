@@ -2,7 +2,7 @@
     <div class="home">
         <div class="page">
             <div class="content">
-                <div class="title">HI , I AM Gellen Liu</div>
+                <div class="title" data-text="HI , I AM Gellen Liu">HI , I AM Gellen Liu</div>
                 <div class="sub-title">welcome to my world</div>
                 <div class="start-btn" @click="start">start</div>
             </div>
