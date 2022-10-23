@@ -30,6 +30,11 @@ const routes: Array<RouteConfig> = [
         path: "/shareScreen",
         component: () =>
         import("../views/shareScreen/index.vue")
+      },
+      {
+        path: "/hyperLink",
+        component: () =>
+        import("../views/javascript/hyperLink.vue")
       }
     ]
   },
