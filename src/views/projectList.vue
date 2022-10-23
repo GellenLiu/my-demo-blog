@@ -27,6 +27,11 @@ export default class TemplateCnp extends Vue {
             path: '/my-demo-blog'
         },
         {
+            label: 'my-notesbook',
+            desc: '笔记',
+            path: '/notesbook'
+        },
+        {
             label: 'Comming Soon',
             desc: '敬请期待',
             path: ''

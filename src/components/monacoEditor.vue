@@ -63,11 +63,14 @@ export default {
             lineNumbers: 'on', // 行号 取值： "on" | "off" | "relative" | "interval" | function
             lineNumbersMinChars: 5, // 行号最小字符   number
             enableSplitViewResizing: false,
-            readOnly: this.readOnly
+            readOnly: this.readOnly,
+            minimap: {
+                enabled: false // 不要小地图
+            }
         });
     }
 };
-</script>  
+</script>
 <style lang="scss" scoped>
 .monaco-editor {
     height: 300px;

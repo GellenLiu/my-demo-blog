@@ -34,6 +34,12 @@ const routes: Array<RouteConfig> = [
     ]
   },
   {
+      path: "/notesbook",
+      name: "notesbook",
+      component: () =>
+        import("../views/notesbook/index.vue"),
+  },
+  {
     path: "/about",
     name: "About",
     component: () =>
