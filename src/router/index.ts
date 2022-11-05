@@ -35,6 +35,11 @@ const routes: Array<RouteConfig> = [
         path: "/hyperLink",
         component: () =>
         import("../views/javascript/hyperLink.vue")
+      }, 
+      {
+        path: "/fileDownload",
+        component: () =>
+        import("../views/javascript/fileDownload.vue")
       }
     ]
   },

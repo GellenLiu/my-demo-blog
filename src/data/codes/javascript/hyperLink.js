@@ -1,4 +1,4 @@
-export default `htmlDecode(str: string): string {
+export default `function htmlDecode(str: string): string {
     let s = '';
     if (str.length == 0) return '';
     s = str.replace(/&amp;/g, '&');
@@ -7,18 +7,24 @@ export default `htmlDecode(str: string): string {
     s = s.replace(/&nbsp;/g, ' ');
     s = s.replace(/&#39;/g, "'");
     s = s.replace(/&quot;/g, '"');
+    s = s.replace(/&ldquo;/g, '“');
+    s = s.replace(/&rdquo;/g, '”');
+    s = s.replace(/&yen;/g, '¥');
     return s;
 }
 
-htmlEncode(str: string) {
+function htmlEncode(str) {
     let s = '';
     if (str.length == 0) return '';
-    s = str.replace(/&/g, '&amp;');
     s = s.replace(/</g, '&lt;');
     s = s.replace(/>/g, '&gt;');
     s = s.replace(/ /g, '&nbsp;');
     s = s.replace(/\'/g, '&#39;');
     s = s.replace(/\"/g, '&quot;');
+    s = s.replace(/“/g, '&ldquo;');
+    s = s.replace(/”/g, '&rdquo;');
+    s = s.replace(/¥/g, '&yen;');
+    s = str.replace(/&/g, '&amp;');
     return s;
 }
 fixLink(str: string) {
