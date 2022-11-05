@@ -1,6 +1,7 @@
 import enI18n from './en';
 import zhI18n from './zh';
 import Vue from "vue";
+import VueI18n from 'vue-i18n';
 
 
 Vue.use(VueI18n);
@@ -16,9 +17,9 @@ Vue.use({
 });
 
 const LANG_DB_KEY = 'lang';
-const initLang = Db.get(LANG_DB_KEY) ?? getSystemLang() : 'zh';
+const initLang = window.localStorage.getItem(LANG_DB_KEY) ?? getSystemLang() : 'zh';
 const i18n = new VueI18n({
-    locale: initLang ?? 'zh',
+    locale: initLang,
     messages: {zh: zhI18n, en: enI18n}
 });
 
@@ -28,12 +29,9 @@ function getSystemLang() {
     return navigator.language === 'en' ? 'en' : 'zh';
 }
 
-function setLanguage(lang: 'zh' | 'en', cache: boolean = true) {
+function setLanguage(lang: string, cache: boolean = true) {
     i18n.locale = lang;
-    // 设置element-ui语言
-    // ElementLocale.use(lang === 'en' ? enLocale : zhLocale);
-    // 保存语言到本地
-    cache && window.localStorage.set(LANG_DB_KEY, lang);
+    cache && window.localStorage.setItem(LANG_DB_KEY, lang);
     // 设置cookie语言
     document.cookie = `lang=${lang}&domain=${window.location.hostname}`;
 }
@@ -53,6 +51,6 @@ function useI18n() {
     };
 }
 
-export {useI18n};
+export {useI18n, setLanguage};
 
 export default i18n;

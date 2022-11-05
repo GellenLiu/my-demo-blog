@@ -1,30 +1,57 @@
 <template>
     <div class="header">
         <div class="left">
-                <div class="go-home" @click="goHome">
-                    <img src="@/assets/img/home.svg" />
-                    <span>Home</span>
-                </div>
+            <div class="go-home" @click="goHome">
+                <img src="@/assets/img/home.svg" />
+                <span>{{ $t('Home') }}</span>
             </div>
-            <div class="right"></div>
+        </div>
+        <div class="right">
+            <div class="language-setting">
+                <el-dropdown @command="changeLanguage">
+                    <span class="el-dropdown-link">
+                        {{ activeLanguage }}<i class="el-icon-arrow-down el-icon--right"></i>
+                    </span>
+                    <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item command="zh">中文</el-dropdown-item>
+                        <el-dropdown-item command="en">English</el-dropdown-item>
+                    </el-dropdown-menu>
+                </el-dropdown>
+            </div>
+        </div>
     </div>
-  </template>
+</template>
   
   <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import {useI18n} from '../i18n/index'
+const {setLanguage} = useI18n();
+const langMap: any = {
+    zh: '中文',
+    en: 'English'
+}
 
 @Component
 export default class Header extends Vue {
-    @Prop() private msg!: string;
+    activeLanguage = '中文'
+
+    mounted() {
+        console.log(useI18n())
+    }
 
     goHome() {
-        let that =this;
-        that.$router.push('/')
+        let that = this;
+        that.$router.push('/');
+    }
+
+    changeLanguage(lang: string) {
+        this.activeLanguage = langMap[lang];
+        setLanguage(lang, true)
     }
 }
 </script>
   
-  <style lang="scss" scoped>
+<style lang="scss" scoped>
 @import '../styles/layout.scss';
 
 .demoHome {
@@ -41,9 +68,9 @@ export default class Header extends Vue {
     align-items: center;
     padding: 0 20px;
     height: 50px;
-    border-bottom: .5px solid rgba(0,0,0,.08);
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
     z-index: 990px;
-    background: rgba($color: #fff, $alpha: .8);
+    background: rgba($color: #fff, $alpha: 0.8);
     .left {
         display: flex;
         justify-content: flex-start;
@@ -102,5 +129,14 @@ export default class Header extends Vue {
         height: 30px;
     }
 }
+</style>
+<style lang="scss">
+  .el-dropdown-link {
+    cursor: pointer;
+    color: #409EFF;
+  }
+  .el-icon-arrow-down {
+    font-size: 12px;
+  }
 </style>
   

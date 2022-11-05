@@ -15,7 +15,7 @@
                     <div class="more-select"></div>
                     <el-dropdown>
                         <span class="el-dropdown-link">
-                            排序<i class="el-icon-arrow-down el-icon--right"></i>
+                            {{ $t('sort') }}<i class="el-icon-arrow-down el-icon--right"></i>
                         </span>
                         <el-dropdown-menu slot="dropdown">
                             <el-dropdown-item icon="el-icon-plus">热度</el-dropdown-item>
