@@ -1,13 +1,7 @@
 <template>
     <div class="demo-content">
         <div></div>
-        <div class="code-wrap">
-            <div class="code-header-wrap">
-                <div class="code-title">Code Demo:</div>
-                <div class="copy-btn" @click="copyCodeContent">copy</div>
-            </div>
-            <Editor class="editor" :codes="codeContent" :readOnly="true"></Editor>
-        </div>
+        <code-show :code="codeContent"></code-show>
     </div>
   </template>
   <script lang="ts">

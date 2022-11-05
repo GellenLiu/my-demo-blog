@@ -5,13 +5,7 @@
       <div class="start-btn" @click="startShare">开始共享</div>
       <div class="stop-btn" @click="stopShare">结束共享</div>
     </div>
-    <div class="code-wrap">
-            <div class="code-header-wrap">
-                <div class="code-title">Code Demo:</div>
-                <div class="copy-btn" @click="copyCodeContent">copy</div>
-            </div>
-            <Editor class="editor" :codes="codeContent" :readOnly="true"></Editor>
-        </div>
+    <code-show :code="codes"></code-show>
   </div>
 </template>
 <script lang="ts">
@@ -20,11 +14,13 @@ import Editor from '@/components/monacoEditor.vue';
 import utils from '@/utils/utils';
 import { Message } from 'element-ui';
 import codes from '@/data/codes/shareScreen/index';
+import CodeShow from '@/components/CodeShow.vue';
 
 @Component({
-  components: {Editor},
+  components: {Editor, CodeShow},
 })
 export default class ShareScreen extends Vue {
+  codes = codes;
   mounted() {
     console.log(codes)
   }

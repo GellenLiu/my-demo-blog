@@ -1,5 +1,6 @@
 <template>
     <div class="page">
+        <myHeader></myHeader>
         <div class="notesbook-page">
             <iframe src="https://blog.csdn.net/weixin_44736005?type=blog"></iframe>
             <!-- <div class="file-list">
@@ -31,11 +32,12 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import Header from '@/components/Header.vue';
 var Marked = require('marked');
 var hljs = require('@/utils/highlight.js');
 
 @Component({
-    components: {}
+    components: {myHeader: Header}
 })
 export default class notesbook extends Vue {
     content = '';

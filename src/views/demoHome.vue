@@ -1,36 +1,17 @@
 <template>
     <div class="demoHome">
-        <div class="header">
-            <div class="left">
-                <div class="logo">
-                    <img src="@/assets/logo.png" />
-                    <span>my-demo-blog</span>
-                </div>
-                <div class="go-home" @click="goHome"><img src="@/assets/img/home.svg"></img></div>
-            </div>
-            <div class="right"></div>
-        </div>
+        <my-header></my-header>
         <div class="main">
             <div class="aside">
                 <div class="aside-header">
-                    <el-select
+                    <el-input
+                        type="text"
+                        prefix-icon="el-icon-search"
                         v-model="searchValue"
-                        multiple
-                        filterable
-                        remote
-                        reserve-keyword
-                        placeholder="请输入关键词"
-                        :remote-method="remoteMethod"
-                    >
-                        <el-option
-                            v-for="item in options"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value"
-                        >
-                        </el-option>
-                    </el-select>
-                    <div class="more"></div>
+                        placeholder="输入关键字"
+                        style="width: 120px; cursor: pointer"
+                        @keyup.enter.native="searching"
+                    ></el-input>
                     <div class="more-select"></div>
                     <el-dropdown>
                         <span class="el-dropdown-link">
@@ -42,8 +23,6 @@
                             <el-dropdown-item icon="el-icon-circle-plus-outline"
                                 >难度</el-dropdown-item
                             >
-                            <el-dropdown-item icon="el-icon-check">高到低</el-dropdown-item>
-                            <el-dropdown-item icon="el-icon-circle-check">低到高</el-dropdown-item>
                         </el-dropdown-menu>
                     </el-dropdown>
                 </div>
@@ -70,10 +49,12 @@
 import { Component, Vue } from 'vue-property-decorator';
 import HelloWorld from '@/components/HelloWorld.vue';
 import routerListData from '@/data/routerListData';
+import Header from '@/components/Header.vue';
 
 @Component({
     components: {
-        HelloWorld
+        HelloWorld,
+        'my-header': Header
     }
 })
 export default class TemplateCnp extends Vue {
@@ -89,8 +70,11 @@ export default class TemplateCnp extends Vue {
         that.$router.push(`${path}`);
     }
     goHome() {
-        let that =this;
-        that.$router.push('/')
+        let that = this;
+        that.$router.push('/');
+    }
+    searching() {
+
     }
 }
 </script>

@@ -94,5 +94,4 @@ export default class TemplateCnp extends Vue {
     }
 }
 </script>
-  <style lang="scss" scoped src="@/styles/demoHome.scss"></style>
-  
+<style lang="scss" scoped src="@/styles/demoHome.scss"></style>

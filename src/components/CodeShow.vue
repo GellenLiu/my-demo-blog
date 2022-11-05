@@ -1,48 +1,27 @@
+
+
 <template>
-    <div class="demo-content">
-        <div class="text-area-container">
-            <el-input type="input" v-model="inputValue" />
-            <div class="btn-wrap">
-                <el-button class="btn" @click="copyClick">copy</el-button>
-            </div>
+    <div class="code-wrap">
+        <div class="code-header-wrap">
+            <div class="code-title">Code Demo:</div>
+            <div class="copy-btn" @click="copyCodeContent">复制代码</div>
         </div>
-        <div>粘贴验证区域：</div>
-        <textarea></textarea>
-        <code-show :code="codeContent"></code-show>
+        <Editor class="editor" :codes="code" :readOnly="readonly"></Editor>
     </div>
 </template>
+  
   <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Message } from 'element-ui';
 import Editor from '@/components/monacoEditor.vue';
-import codes from '@/data/codes/javascript/copy';
-import CodeShow from '@/components/CodeShow.vue';
 
 @Component({
-    components: { Editor, CodeShow }
+    components: { Editor }
 })
-export default class Copy extends Vue {
-    inputValue = '复制这段话';
-    curCode = '<div>111</div>';
-    cmOptions = {
-        value: '',
-        mode: 'text/javascript',
-        theme: 'ambiance',
-        readOnly: true
-    };
-    codeContent = codes;
-    mounted() {}
-    copyClick() {
-        this.copy(
-            this.inputValue,
-            () => {
-                Message.success('复制成功');
-            },
-            () => {
-                Message.error('复制失败');
-            }
-        );
-    }
+export default class CodeShow extends Vue {
+    @Prop() code!: string;
+    @Prop({ default: true }) readonly!: boolean;
+
     copy(text: string, fcb: Function, errCb: Function) {
         if (!navigator.clipboard) {
             let textArea = document.createElement('textarea');
@@ -73,7 +52,7 @@ export default class Copy extends Vue {
     }
     copyCodeContent() {
         this.copy(
-            this.codeContent,
+            this.code,
             () => {
                 Message.success('复制成功');
             },
@@ -84,6 +63,16 @@ export default class Copy extends Vue {
     }
 }
 </script>
-  <style lang="scss" src="@/styles/javascript/copy.scss">
+  
+  <style lang="scss" scoped>
+@import '../styles/layout.scss';
+
+.code-title {
+    font-size: 14px;
+}
+.code-wrap {
+    font-size: 14px;
+
+}
 </style>
   
