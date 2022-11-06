@@ -17,7 +17,7 @@ Vue.use({
 });
 
 const LANG_DB_KEY = 'lang';
-const initLang = window.localStorage.getItem(LANG_DB_KEY) ?? getSystemLang() : 'zh';
+const initLang = window.localStorage.getItem(LANG_DB_KEY) || getSystemLang() || 'zh';
 const i18n = new VueI18n({
     locale: initLang,
     messages: {zh: zhI18n, en: enI18n}

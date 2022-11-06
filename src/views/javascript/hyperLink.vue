@@ -1,5 +1,6 @@
 <template>
     <div class="demo-content">
+        <demo-info v-bind="demoInfo"></demo-info>
         <div>
             <el-input v-model="inputContent" placeholder="input your message"></el-input>
             <el-button @click="transform">转换</el-button>
@@ -17,11 +18,16 @@ import Editor from '@/components/monacoEditor.vue';
 let LINK_IDENTIFICATION = 'TElOS19JREVOVElGSUNBVElPTg==';
 import codes from '@/data/codes/javascript/hyperLink';
 import CodeShow from '@/components/CodeShow.vue';
+import DemoInfo from '@/components/DemoInfo.vue';
 
 @Component({
-    components: { Editor, CodeShow }
+    components: { Editor,DemoInfo, CodeShow }
 })
 export default class hyperLink extends Vue {
+    demoInfo = {
+        author: 'gellenliu',
+        likes: '999+'
+    }
     codeContent = codes;
     inputContent = '';
     hyperLinkcontent = '';

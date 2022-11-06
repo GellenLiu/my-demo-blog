@@ -1,5 +1,6 @@
 <template>
   <div class="share-screen">
+    <demo-info v-bind="demoInfo"></demo-info>
     <video id="video" class="video"></video>
     <div class="btn-wrap">
       <div class="start-btn" @click="startShare">开始共享</div>
@@ -15,11 +16,16 @@ import utils from '@/utils/utils';
 import { Message } from 'element-ui';
 import codes from '@/data/codes/shareScreen/index';
 import CodeShow from '@/components/CodeShow.vue';
+import DemoInfo from '@/components/DemoInfo.vue';
 
 @Component({
-  components: {Editor, CodeShow},
+  components: {Editor,DemoInfo, CodeShow},
 })
 export default class ShareScreen extends Vue {
+  demoInfo = {
+        author: 'gellenliu',
+        likes: '101'
+    }
   codes = codes;
   mounted() {
     console.log(codes)

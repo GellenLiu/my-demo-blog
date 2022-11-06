@@ -1,5 +1,6 @@
 <template>
     <div class="demo-content">
+        <demo-info v-bind="demoInfo"></demo-info>
         <div class="text-area-container">
             <el-input type="input" v-model="inputValue" />
             <div class="btn-wrap">
@@ -17,11 +18,16 @@ import { Message } from 'element-ui';
 import Editor from '@/components/monacoEditor.vue';
 import codes from '@/data/codes/javascript/copy';
 import CodeShow from '@/components/CodeShow.vue';
+import DemoInfo from '@/components/DemoInfo.vue';
 
 @Component({
-    components: { Editor, CodeShow }
+    components: { Editor,DemoInfo, CodeShow }
 })
 export default class Copy extends Vue {
+    demoInfo = {
+        author: 'gellenliu',
+        likes: '999+'
+    }
     inputValue = '复制这段话';
     curCode = '<div>111</div>';
     cmOptions = {
