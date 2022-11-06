@@ -22,7 +22,11 @@ import DemoInfo from '@/components/DemoInfo.vue';
 export default class ShareScreen extends Vue {
   demoInfo = {
         author: 'gellenliu',
-        likes: '101'
+        likes: '101',
+        labels: [
+            'javascript',
+            'API'
+        ]
     }
   codes = codes;
   mounted() {

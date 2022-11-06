@@ -1,5 +1,13 @@
 <template>
     <div class="demo-info">
+        <div class="left">
+            <div class="demo-label-list">
+                <img src="@/assets/icon/label.png" />
+                <div class="label-item" v-for="(label, index) in labels" :key="index">
+                    {{ label }}
+                </div>
+            </div>
+        </div>
         <div class="right">
             <div class="demo-author">
                 <img src="@/assets/icon/author.svg" />
@@ -25,11 +33,11 @@ import { Message } from 'element-ui';
 export default class DemoInfo extends Vue {
     @Prop({ default: 'gellenliu' }) author!: string;
     @Prop({ default: 0 }) likes!: string | number;
+    @Prop() labels!: Array<string>;
 
     mounted() {}
 
-    like() {
-    }
+    like() {}
 
     share() {
         let link = window.location.href;
@@ -52,13 +60,35 @@ export default class DemoInfo extends Vue {
 
 .demo-info {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 30px;
+    margin-bottom: 10px;
 }
 .left {
-    width: 100px;
+
+    .demo-label-list {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        img {
+            height: 18px;
+            width: 18px;
+            margin-right: 10px;
+        }
+    }
+
+    .label-item {
+        height: 16px;
+        font-size: 14px;
+        padding: 0 8px;
+        margin-right: 10px;
+        line-height: 16px;
+        border-radius: 4px;
+        background: rgb(106, 104, 104);
+        color: #fff;
+    }
 }
 .right {
     display: flex;

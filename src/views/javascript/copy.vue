@@ -26,7 +26,10 @@ import DemoInfo from '@/components/DemoInfo.vue';
 export default class Copy extends Vue {
     demoInfo = {
         author: 'gellenliu',
-        likes: '999+'
+        likes: '999+',
+        labels: [
+            'javascript'
+        ]
     }
     inputValue = '复制这段话';
     curCode = '<div>111</div>';

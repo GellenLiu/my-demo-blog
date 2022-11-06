@@ -26,7 +26,10 @@ import DemoInfo from '@/components/DemoInfo.vue';
 export default class hyperLink extends Vue {
     demoInfo = {
         author: 'gellenliu',
-        likes: '999+'
+        likes: '999+',
+        labels: [
+            'javascript'
+        ]
     }
     codeContent = codes;
     inputContent = '';
