@@ -25,3 +25,20 @@ html, body {
   opacity: 0;
   transform: scale(0.9);
 }
+
+// 移动端强制横屏
+@media screen and (orientation: portrait) {
+  html {
+    min-width: 100vh;
+    transform: rotate(90deg);
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+}
+@media screen and (orientation: landscape) {
+  html {
+    min-width: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+}

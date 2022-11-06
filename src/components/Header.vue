@@ -7,6 +7,9 @@
             </div>
         </div>
         <div class="right">
+            <div class="dark-mode-setting">
+                <img src="@/assets/img/darkMode.png"/>
+            </div>
             <div class="language-setting">
                 <el-dropdown @command="changeLanguage">
                     <span class="el-dropdown-link">
@@ -99,6 +102,24 @@ export default class Header extends Vue {
             margin-right: 6px;
         }
     }
+}
+
+.right {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.dark-mode-setting {
+   height: 20px;
+   width: 20px;
+   margin-top: 2px;
+   margin-right: 10px;
+
+   img {
+     height: 100%;
+     width: 100%;
+   }
 }
 .main {
     display: flex;
