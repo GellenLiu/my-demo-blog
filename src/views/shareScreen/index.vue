@@ -12,8 +12,6 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import Editor from '@/components/monacoEditor.vue';
-import utils from '@/utils/utils';
-import { Message } from 'element-ui';
 import codes from '@/data/codes/shareScreen/index';
 import CodeShow from '@/components/CodeShow.vue';
 import DemoInfo from '@/components/DemoInfo.vue';
@@ -84,14 +82,6 @@ onremovetrack: null
     // 通过webRTC进行推流
   }
   codeContent = codes as string;
-  copyCodeContent() {
-    utils.copy(this.codeContent, () => {
-                Message.success('复制成功');
-            },
-            () => {
-                Message.error('复制失败');
-            });
-  }
 }
 </script>
 <style>

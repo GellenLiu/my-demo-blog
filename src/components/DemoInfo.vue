@@ -2,15 +2,15 @@
     <div class="demo-info">
         <div class="right">
             <div class="demo-author">
-                <img src="@/assets/icon/author.svg"/>
+                <img src="@/assets/icon/author.svg" />
                 <div class="author-name">{{ author }}</div>
             </div>
             <div class="demo-agree">
-                <img src="@/assets/icon/agree1.png"/>
+                <img src="@/assets/icon/agree1.png" @click="like" />
                 <div class="agree-number">{{ likes }}</div>
             </div>
-            <div class="demo-share">
-                <img src="@/assets/icon/share.png"/>
+            <div class="demo-share" @click="share">
+                <img src="@/assets/icon/share.png" />
             </div>
         </div>
     </div>
@@ -18,17 +18,31 @@
   
   <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-
+import Utils from '@/utils/utils';
+import { Message } from 'element-ui';
 
 @Component
 export default class DemoInfo extends Vue {
+    @Prop({ default: 'gellenliu' }) author!: string;
+    @Prop({ default: 0 }) likes!: string | number;
 
-    @Prop({default: 'gellenliu'}) author!: string;
-    @Prop({default: 0}) likes!: string | number;
+    mounted() {}
 
-    mounted() {
+    like() {
     }
 
+    share() {
+        let link = window.location.href;
+        Utils.copy(
+            link,
+            () => {
+                Message.success('已复制分享链接');
+            },
+            () => {
+                Message.error('复制失败');
+            }
+        );
+    }
 }
 </script>
   
@@ -52,15 +66,15 @@ export default class DemoInfo extends Vue {
     align-items: center;
 }
 .info-icon {
-   height: 20px;
-   margin-right: 10px;
-   @include text-elipsis;
-   img {
-    display: inline-block;
     height: 20px;
-    width: 20px;
-    margin-right: 6px;
-   }
+    margin-right: 10px;
+    @include text-elipsis;
+    img {
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        margin-right: 6px;
+    }
 }
 
 .demo-author {
@@ -74,13 +88,13 @@ export default class DemoInfo extends Vue {
 .demo-agree {
     @extend .info-icon;
     display: flex;
-   align-items: center;
+    align-items: center;
 }
 
 .demo-share {
     @extend .info-icon;
-  display: flex;
-align-items: center;
+    display: flex;
+    align-items: center;
     img {
         height: 18px;
         width: 18px;
