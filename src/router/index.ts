@@ -40,6 +40,11 @@ const routes: Array<RouteConfig> = [
         path: "/fileDownload",
         component: () =>
         import("../views/javascript/fileDownload.vue")
+      },
+      {
+        path: "/takePhoto",
+        component: () =>
+        import("../views/javascript/takePhoto.vue")
       }
     ]
   },

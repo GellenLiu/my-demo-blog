@@ -32,5 +32,17 @@ export default [
                 'javascript'
             ]
         }
+    },
+    {
+        label: '摄像头拍照',
+        path: '/takePhoto',
+        demoInfo: {
+            author: 'gellenliu',
+            likes: '99+',
+            labels: [
+                'javascript',
+                'API'
+            ]
+        }
     }
 ]

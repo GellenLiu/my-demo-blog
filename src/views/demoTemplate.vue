@@ -16,11 +16,14 @@ import DemoInfo from '@/components/DemoInfo.vue';
 export default class Copy extends Vue {
     demoInfo = {
         author: 'gellenliu',
-        likes: '999+'
+        likes: '999+',
+        labels: [
+            'javascript'
+        ]
     };
     codeContent = `暂无代码`;
     mounted() {}
 }
 </script>
-<style lang="scss" src="@/styles/javascript/copy.scss">
+<style lang="scss" scoped>
 </style>
