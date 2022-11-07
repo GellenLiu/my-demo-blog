@@ -1,14 +1,36 @@
 export default [
     {
         label: '复制文本',
-        path: '/copy'
+        path: '/copy',
+        demoInfo: {
+            author: 'gellenliu',
+            likes: '999+',
+            labels: [
+                'javascript'
+            ]
+        }
     },
     {
         label: '共享屏幕',
-        path: '/shareScreen'
+        path: '/shareScreen',
+        demoInfo: {
+            author: 'gellenliu',
+            likes: '101',
+            labels: [
+                'javascript',
+                'API'
+            ]
+        }
     },
     {
         label: '超链接识别转换',
-        path: '/hyperLink'
+        path: '/hyperLink',
+        demoInfo: {
+            author: 'gellenliu',
+            likes: '99+',
+            labels: [
+                'javascript'
+            ]
+        }
     }
 ]

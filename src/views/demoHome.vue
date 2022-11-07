@@ -62,9 +62,7 @@ export default class TemplateCnp extends Vue {
     options = [];
     remoteMethod() {}
     routerList = routerListData;
-    mounted() {
-        console.log(this.routerList);
-    }
+    mounted() {}
     goRouter(path: string) {
         let that = this;
         that.$router.push(`${path}`);
@@ -73,8 +71,13 @@ export default class TemplateCnp extends Vue {
         let that = this;
         that.$router.push('/');
     }
-    searching() {
 
+    // 搜索
+    searching() {
+        let that = this;
+        that.routerList =  routerListData.filter((item: any) => {
+            return JSON.stringify(item).includes(that.searchValue);
+        });
     }
 }
 </script>
