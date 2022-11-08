@@ -30,7 +30,6 @@ export default class ShareScreen extends Vue {
     }
   codes = codes;
   mounted() {
-    console.log(codes)
   }
 
   stream: any = null;

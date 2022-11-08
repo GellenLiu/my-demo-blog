@@ -4,7 +4,7 @@ export default [
         path: '/copy',
         demoInfo: {
             author: 'gellenliu',
-            likes: '999+',
+            likes: '999',
             labels: [
                 'javascript'
             ]
@@ -27,7 +27,7 @@ export default [
         path: '/hyperLink',
         demoInfo: {
             author: 'gellenliu',
-            likes: '99+',
+            likes: '97',
             labels: [
                 'javascript'
             ]
@@ -38,7 +38,7 @@ export default [
         path: '/takePhoto',
         demoInfo: {
             author: 'gellenliu',
-            likes: '99+',
+            likes: '99',
             labels: [
                 'javascript',
                 'API'

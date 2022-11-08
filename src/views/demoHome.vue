@@ -13,14 +13,14 @@
                         @keyup.enter.native="searching"
                     ></el-input>
                     <div class="more-select"></div>
-                    <el-dropdown>
+                    <el-dropdown @command="sorting">
                         <span class="el-dropdown-link">
                             {{ $t('sort') }}<i class="el-icon-arrow-down el-icon--right"></i>
                         </span>
                         <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item icon="el-icon-plus">热度</el-dropdown-item>
-                            <el-dropdown-item icon="el-icon-circle-plus">好评</el-dropdown-item>
-                            <el-dropdown-item icon="el-icon-circle-plus-outline"
+                            <el-dropdown-item command="heat" icon="el-icon-plus">热度</el-dropdown-item>
+                            <el-dropdown-item command="likes" icon="el-icon-circle-plus">好评</el-dropdown-item>
+                            <el-dropdown-item command="difficulty" icon="el-icon-circle-plus-outline"
                                 >难度</el-dropdown-item
                             >
                         </el-dropdown-menu>
@@ -78,6 +78,39 @@ export default class TemplateCnp extends Vue {
         that.routerList =  routerListData.filter((item: any) => {
             return JSON.stringify(item).includes(that.searchValue);
         });
+    }
+
+    // 标签筛选
+    labelSearching(label: string) {
+        let that = this;
+        that.routerList =  that.routerList.filter((item: any) => {
+            return JSON.stringify(item).includes(label);
+        });
+    }
+
+    // 排序
+    sorting(type: string) {
+        if(type === 'likes') {
+            this.routerList = this.routerList.sort((a: any, b: any)=>{
+                console.log(parseInt(b.demoInfo.likes) - parseInt(a.demoInfo.likes))
+                return parseInt(b.demoInfo.likes) - parseInt(a.demoInfo.likes);
+           })
+           return;
+        }
+        if(type === 'reading') {
+            this.routerList = this.routerList.sort((a: any, b: any)=>{
+                return b.demoInfo.likes - a.demoInfo.likes;
+           })
+           return;
+        }
+        if(type === 'difficulty') {
+            this.routerList = this.routerList.sort((a: any, b: any)=>{
+                return b.demoInfo.likes - a.demoInfo.likes;
+           })
+           return;
+        }
+
+
     }
 }
 </script>
