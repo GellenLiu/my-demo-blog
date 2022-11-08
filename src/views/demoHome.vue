@@ -18,13 +18,24 @@
                             {{ $t('sort') }}<i class="el-icon-arrow-down el-icon--right"></i>
                         </span>
                         <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item command="heat" icon="el-icon-plus">热度</el-dropdown-item>
-                            <el-dropdown-item command="likes" icon="el-icon-circle-plus">好评</el-dropdown-item>
-                            <el-dropdown-item command="difficulty" icon="el-icon-circle-plus-outline"
+                            <el-dropdown-item command="heat" icon="el-icon-plus"
+                                >热度</el-dropdown-item
+                            >
+                            <el-dropdown-item command="likes" icon="el-icon-circle-plus"
+                                >好评</el-dropdown-item
+                            >
+                            <el-dropdown-item
+                                command="difficulty"
+                                icon="el-icon-circle-plus-outline"
                                 >难度</el-dropdown-item
                             >
                         </el-dropdown-menu>
                     </el-dropdown>
+                    <el-checkbox-group v-model="labelSearchList">
+                        <el-checkbox label="css"></el-checkbox>
+                        <el-checkbox label="javascript"></el-checkbox>
+                        <el-checkbox label="API"></el-checkbox>
+                    </el-checkbox-group>
                 </div>
                 <div class="aside-content">
                     <div
@@ -46,7 +57,7 @@
 </template>
   
   <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 import HelloWorld from '@/components/HelloWorld.vue';
 import routerListData from '@/data/routerListData';
 import Header from '@/components/Header.vue';
@@ -62,6 +73,12 @@ export default class TemplateCnp extends Vue {
     options = [];
     remoteMethod() {}
     routerList = routerListData;
+    // 筛选条件
+    filterCond: any = {
+        searchValue: '',
+        labelList: []
+    };
+    labelSearchList = [];
     mounted() {}
     goRouter(path: string) {
         let that = this;
@@ -75,42 +92,52 @@ export default class TemplateCnp extends Vue {
     // 搜索
     searching() {
         let that = this;
-        that.routerList =  routerListData.filter((item: any) => {
-            return JSON.stringify(item).includes(that.searchValue);
-        });
+        that.filterCond.searchValue = that.searchValue;
+        that.search();
     }
 
-    // 标签筛选
-    labelSearching(label: string) {
+    search() {
         let that = this;
-        that.routerList =  that.routerList.filter((item: any) => {
-            return JSON.stringify(item).includes(label);
+        let result = routerListData;
+        result = result.filter((item: any) => {
+            return JSON.stringify(item).includes(that.filterCond.searchValue);
         });
+        for (let i of that.filterCond.labelList) {
+            result = result.filter((item: any) => {
+                return JSON.stringify(item).includes(i);
+            });
+        }
+        that.routerList = result;
+    }
+
+    @Watch('labelSearchList')
+    labelSearching() {
+        let that = this;
+        that.filterCond.labelList = that.labelSearchList;
+        that.search();
     }
 
     // 排序
     sorting(type: string) {
-        if(type === 'likes') {
-            this.routerList = this.routerList.sort((a: any, b: any)=>{
-                console.log(parseInt(b.demoInfo.likes) - parseInt(a.demoInfo.likes))
+        if (type === 'likes') {
+            this.routerList = this.routerList.sort((a: any, b: any) => {
+                console.log(parseInt(b.demoInfo.likes) - parseInt(a.demoInfo.likes));
                 return parseInt(b.demoInfo.likes) - parseInt(a.demoInfo.likes);
-           })
-           return;
+            });
+            return;
         }
-        if(type === 'reading') {
-            this.routerList = this.routerList.sort((a: any, b: any)=>{
+        if (type === 'reading') {
+            this.routerList = this.routerList.sort((a: any, b: any) => {
                 return b.demoInfo.likes - a.demoInfo.likes;
-           })
-           return;
+            });
+            return;
         }
-        if(type === 'difficulty') {
-            this.routerList = this.routerList.sort((a: any, b: any)=>{
+        if (type === 'difficulty') {
+            this.routerList = this.routerList.sort((a: any, b: any) => {
                 return b.demoInfo.likes - a.demoInfo.likes;
-           })
-           return;
+            });
+            return;
         }
-
-
     }
 }
 </script>
