@@ -58,6 +58,8 @@ export default class ShareScreen extends Vue {
       that.live(captureStream);
       console.log("captureSream");
       console.log(captureStream);
+      //noSysPermission （无系统权限）
+      //noPermission (没点确定)
       /*
     MediaStream {id: 'hW1oXkU2lBWzXvaHphmc7143NvEgzcrDWUeT', active: true, onaddtrack: null, onremovetrack: null, onactive: null, …}
 active: true

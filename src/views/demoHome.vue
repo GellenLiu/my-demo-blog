@@ -12,7 +12,6 @@
                         style="width: 120px; cursor: pointer"
                         @keyup.enter.native="searching"
                     ></el-input>
-                    <div class="more-select"></div>
                     <el-dropdown @command="sorting">
                         <span class="el-dropdown-link">
                             {{ $t('sort') }}<i class="el-icon-arrow-down el-icon--right"></i>
@@ -31,12 +30,17 @@
                             >
                         </el-dropdown-menu>
                     </el-dropdown>
+                    <div class="more-select" @click="showLabelSearch = !showLabelSearch"></div>
+                    
+                </div>
+                <div v-show="showLabelSearch">
                     <el-checkbox-group v-model="labelSearchList">
                         <el-checkbox label="css"></el-checkbox>
                         <el-checkbox label="javascript"></el-checkbox>
                         <el-checkbox label="API"></el-checkbox>
                     </el-checkbox-group>
                 </div>
+                
                 <div class="aside-content">
                     <div
                         class="router-list-item"
@@ -69,7 +73,9 @@ import Header from '@/components/Header.vue';
     }
 })
 export default class TemplateCnp extends Vue {
-    searchValue = '';
+    labelOptions = ['css', 'javascript', 'API', 'Vue', 'canvas'];
+    searchValue:string = '';
+    showLabelSearch:boolean = false;
     options = [];
     remoteMethod() {}
     routerList = routerListData;

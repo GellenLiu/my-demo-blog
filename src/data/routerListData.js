@@ -30,7 +30,9 @@ export default [
             likes: '97',
             labels: [
                 'javascript'
-            ]
+            ],
+            reading: '999',
+            difficulty: '3'
         }
     },
     {
