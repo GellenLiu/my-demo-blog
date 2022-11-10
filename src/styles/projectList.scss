@@ -15,14 +15,21 @@
     position: relative;
 }
 .item-wrap {
-    position: relative;
-   width: 200px;
-   height: 60px;
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 150px;
+   height: 150px;
    margin: 30px auto;
-   border-radius: 8px;
+   border-radius: 32% 68% 61% 39% / 34% 44% 56% 66% ;
    z-index: 1;
-   border: 1px solid $border-color-gray;
-   background: #000;
+   background-image: linear-gradient(45deg,#3023AE 0%,#FF0099 100%);
+   animation: borderAnimate 2s infinite;
+
+   .list-item:first-child {
+    transform: translate(50px);
+   }
 
    &:hover {
       border: 1px solid $border-color-green;
@@ -32,6 +39,7 @@
     font-size: $font-size-m;
     color: $color-white;
     text-align: center;
+    line-height: 1;
    }
 
    .item-desc {
@@ -71,4 +79,25 @@
 .btn-click-light {
     width: 300px;
     background-color: rgb(214, 22, 22);
+}
+
+@keyframes borderAnimate {
+    0% {
+        border-radius: 32% 68% 61% 39% / 34% 44% 56% 66% ;
+    }
+
+    25% {
+       border-radius: 51% 49% 38% 62% / 37% 38% 62% 63% ;
+    }
+
+    50% {
+        border-radius: 66% 34% 55% 45% / 26% 56% 44% 74% ;
+    }
+
+    75% {
+        border-radius: 42% 58% 67% 33% / 62% 62% 38% 38% ;
+    }
+    100% {
+       border-radius: 51% 49% 38% 62% / 49% 28% 72% 51% ;
+    }
 }

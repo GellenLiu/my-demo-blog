@@ -1,11 +1,11 @@
 <template>
     <div class="projectList">
         <div class="list-wrap">
-            <div @click="goRouter(item.path, key)" v-for="(item, key) in itemList" :key="key">
+            <div class="list-item" @click="goRouter(item.path, key)" v-for="(item, key) in itemList" :key="key">
                 <div :class="index == key ? 'light-animate' : ''">
                     <div class="item-wrap" >
                     <div class="item-label">{{ item.label }}</div>
-                    <div class="item-desc">{{ item.desc }}</div>
+                    <!-- <div class="item-desc">{{ item.desc }}</div> -->
                 </div>
                 </div>
             </div>
@@ -22,17 +22,17 @@ import { Component, Vue } from 'vue-property-decorator';
 export default class TemplateCnp extends Vue {
     itemList = [
         {
-            label: 'my-demo-blog',
+            label: 'Demo',
             desc: '我用demo写博客',
             path: '/my-demo-blog'
         },
         {
-            label: 'my-notesbook',
+            label: 'Blog',
             desc: '笔记',
             path: '/notesbook'
         },
         {
-            label: 'Comming Soon',
+            label: 'Resume',
             desc: '敬请期待',
             path: ''
         }
