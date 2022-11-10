@@ -106,4 +106,9 @@
     width: 13px;
     background: url(../assets//icon//more.png) no-repeat 0 0;
     background-size: 100% 100%;
+
+    &:hover {
+        filter: saturate(6.49) sepia(1) invert(0.79) hue-rotate(2deg) ;
+    }
 }
+

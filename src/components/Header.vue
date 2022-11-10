@@ -8,7 +8,10 @@
         </div>
         <div class="right">
             <div class="dark-mode-setting">
-                <img src="@/assets/img/darkMode.png"/>
+                <label class="switch">
+                    <input v-model="themeMode" type="checkbox" />
+                    <span class="slider"></span>
+                </label>
             </div>
             <div class="language-setting">
                 <el-dropdown @command="changeLanguage">
@@ -26,20 +29,22 @@
 </template>
   
   <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import {useI18n} from '../i18n/index'
-const {setLanguage} = useI18n();
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
+import { useI18n } from '../i18n/index';
+const { setLanguage } = useI18n();
 const langMap: any = {
     zh: '中文',
     en: 'English'
-}
+};
 
 @Component
 export default class Header extends Vue {
-    activeLanguage = '中文'
+    activeLanguage = '中文';
+    themeMode = window.localStorage.getItem('theme') === 'dark' || false;
 
     mounted() {
-        console.log(useI18n())
+        let APP = document.getElementById('app');
+        this.themeMode && APP?.classList.add('dark');
     }
 
     goHome() {
@@ -49,7 +54,20 @@ export default class Header extends Vue {
 
     changeLanguage(lang: string) {
         this.activeLanguage = langMap[lang];
-        setLanguage(lang, true)
+        setLanguage(lang, true);
+    }
+
+    @Watch('themeMode')
+    changeTheme() {
+        let APP = document.getElementById('app');
+        if(this.themeMode) {
+            APP?.classList.add('dark');
+            window.localStorage.setItem('theme', 'dark')
+            
+        } else {
+            APP?.classList.remove('dark');
+            window.localStorage.setItem('theme', 'light')
+        }
     }
 }
 </script>
@@ -60,6 +78,11 @@ export default class Header extends Vue {
 .demoHome {
     color: $color-black;
     background-color: white;
+}
+.dark {
+    .header {
+       background: rgba($color: rgb(19, 18, 18), $alpha: 0.8);
+    }
 }
 .header {
     position: fixed;
@@ -111,15 +134,14 @@ export default class Header extends Vue {
 }
 
 .dark-mode-setting {
-   height: 20px;
-   width: 20px;
-   margin-top: 2px;
-   margin-right: 10px;
+    margin-top: 2px;
+    margin-right: 10px;
+    transform: scale(.7);
 
-   img {
-     height: 100%;
-     width: 100%;
-   }
+    img {
+        height: 100%;
+        width: 100%;
+    }
 }
 .main {
     display: flex;
@@ -150,14 +172,66 @@ export default class Header extends Vue {
         height: 30px;
     }
 }
+
+// 主题开关
+.switch {
+    /* --moon-mask: ; */
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f4f4f5;
+    transition: 0.4s;
+    border-radius: 30px;
+}
+
+.slider:before {
+    position: absolute;
+    content: '';
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 20px;
+    left: 0.3em;
+    bottom: 0.3em;
+    background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #303136;
+}
+
+input:checked + .slider:before {
+    transform: translateX(1.5em);
+    background: #303136;
+    box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -5px 0 0 #a3dafb;
+}
 </style>
 <style lang="scss">
-  .el-dropdown-link {
+.el-dropdown-link {
     cursor: pointer;
-    color: #409EFF;
-  }
-  .el-icon-arrow-down {
+    color: #409eff;
+}
+.el-icon-arrow-down {
     font-size: 12px;
-  }
+}
 </style>
   
