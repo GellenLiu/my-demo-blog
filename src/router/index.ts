@@ -45,6 +45,11 @@ const routes: Array<RouteConfig> = [
         path: "/takePhoto",
         component: () =>
         import("../views/javascript/takePhoto.vue")
+      },
+      {
+        path: "/overflowShake",
+        component: () =>
+        import("../views/css/overflowShake.vue")
       }
     ]
   },

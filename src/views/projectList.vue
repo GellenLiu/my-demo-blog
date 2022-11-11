@@ -3,11 +3,10 @@
         <div class="list-wrap">
             <div class="list-item" @click="goRouter(item.path, key)" v-for="(item, key) in itemList" :key="key">
                 <div :class="index == key ? 'light-animate' : ''">
-                    <div class="item-wrap" >
                     <div class="item-label">{{ item.label }}</div>
                     <!-- <div class="item-desc">{{ item.desc }}</div> -->
                 </div>
-                </div>
+                <!-- </div> -->
             </div>
         </div>
     </div>

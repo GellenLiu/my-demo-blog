@@ -46,5 +46,18 @@ export default [
                 'API'
             ]
         }
+    },
+    {
+        label: '滚动条抖动',
+        path: '/overflowShake',
+        demoInfo: {
+            title: '滚动条抖动',
+            author: 'gellenliu',
+            likes: '999',
+            labels: [
+                'css',
+                'scss'
+            ]
+        }
     }
 ]
