@@ -1,0 +1,39 @@
+$themes: (
+    light: (
+    ),
+    dark: (
+        grey: #f9f9f9
+    )
+);
+
+@mixin themeify {
+    @each $theme-name, $theme-map in $themes {
+      $theme-map: $theme-map !global;
+   
+      [data-theme="#{$theme-name}"] & {
+        @content
+      }
+    }
+  }
+   
+  @function themed($key) {
+    @return map-get($theme-map, $key)
+  }
+   
+  @mixin bgColor($color) {
+    @include themeify {
+      background-color: themed($color);
+    }
+  }
+   
+  @mixin textColor($color) {
+    @include themeify {
+      color: themed($color);
+    }
+  }
+   
+  @mixin borderColor($color) {
+    @include themeify {
+      border-color: themed($color);
+    }
+  }
