@@ -19,7 +19,7 @@
             >
                 <div :class="index == key ? 'light-animate' : ''">
                     <div class="item-label">{{ item.label }}</div>
-                    <!-- <div class="item-desc">{{ item.desc }}</div> -->
+                    <div class="item-desc">{{ item.desc }}</div>
                 </div>
                 <!-- </div> -->
             </div>

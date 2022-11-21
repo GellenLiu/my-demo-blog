@@ -137,6 +137,11 @@ button {
    }
 
    &:hover {
+
+    .item-desc  {
+        display: block;
+    }
+
       transition: all .8s;
       box-shadow:
       3.1px 2.2px 4.5px rgba(41, 179, 238, 0.048),
@@ -169,6 +174,7 @@ button {
    }
 
    .item-desc {
+    display: none;
     font-size: $font-size-xs;
     color: $color-white;
     text-align: center;
@@ -232,7 +238,7 @@ button {
 
 $bubble-color: #0ab6e6;
 .footer {
-    background: #000;
+    background: #fff;
 }
 .g-container {
     width: 100%;
