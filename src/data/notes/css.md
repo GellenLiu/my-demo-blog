@@ -1064,6 +1064,11 @@ perspective-origin：摄像机的位置
 
 
 
+UI开发
+有一些选择器是用不了class的，只能用标签
+.class1 ~ .class 可以用class，表示，在class1后面的class元素
+first-child，其父元素的第一个儿子
+first-type，其父元素的第一个该类型的标签元素。
 
 
 

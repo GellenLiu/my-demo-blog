@@ -238,7 +238,7 @@ button {
 
 $bubble-color: #0ab6e6;
 .footer {
-    background: #fff;
+    // background: #fff;
 }
 .g-container {
     width: 100%;
@@ -273,12 +273,14 @@ $bubble-color: #0ab6e6;
     }
 }
 
+// 圆形
 .g-bubble {
     position: absolute;
     border-radius: 50%;
     background-color: $bubble-color;
 }
 
+// 位置，动画时机随机
 @for $i from 0 through 200 { 
     .g-bubble:nth-child(#{$i}) {
         $width: 30 + random(100) + px;
