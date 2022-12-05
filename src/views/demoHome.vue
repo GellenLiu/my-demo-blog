@@ -97,7 +97,7 @@ export default class TemplateCnp extends Vue {
 
     // 搜索
     searching() {
-        let that = this;
+        const that = this;
         that.filterCond.searchValue = that.searchValue;
         that.search();
     }
