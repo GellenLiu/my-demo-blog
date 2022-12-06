@@ -7,7 +7,6 @@
 html, body {
     height: 100%;
     width: 100%;
-    overflow-x: hidden;
 }
 #app {
     height: 100%;
@@ -26,22 +25,44 @@ html, body {
   transform: scale(0.9);
 }
 
-// 移动端强制横屏
 @media screen and (orientation: portrait) {
   html {
-    min-width: 100vh;
     transform: rotate(90deg);
-    overflow-x: hidden;
-    overflow-y: hidden;
+    width: 100vh;
+    height: 100vw;
+    
   }
 }
 @media screen and (orientation: landscape) {
   html {
-    min-width: 100vh;
-    overflow-x: hidden;
-    overflow-y: hidden;
   }
 }
+
+@media screen and (min-width: 750px) {
+  .home {
+    transform-origin: top;
+    transform: scale(.8);
+  }
+}
+@media screen and (min-width: 375px) {
+  .home {
+    transform-origin: top;
+    transform: scale(.4);
+  }
+}
+@media screen and (min-width: 1566px) {
+  .home {
+    transform-origin: top;
+    transform: scale(1.2);
+  }
+}
+@media screen and (min-width: 1980px) {
+  .home {
+    transform-origin: top;
+    transform: scale(1.5);
+  }
+}
+
 
 .dark {
   
