@@ -83,6 +83,10 @@ export default class Header extends Vue {
     .header {
        background: rgba($color: rgb(19, 18, 18), $alpha: 0.8);
     }
+
+    .go-home {
+        color: #fff;;
+    }
 }
 .header {
     position: fixed;
@@ -95,7 +99,7 @@ export default class Header extends Vue {
     padding: 0 20px;
     height: 50px;
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
-    z-index: 990px;
+    z-index: 99;
     background: rgba($color: #fff, $alpha: 0.8);
     .left {
         display: flex;
@@ -114,15 +118,45 @@ export default class Header extends Vue {
         }
     }
     .go-home {
+        position: relative;
         display: flex;
         justify-content: start;
         align-items: center;
         line-height: 100%;
         font-weight: 500;
+        overflow: visible;
+        cursor: pointer;
         img {
             height: 30px;
             width: 30px;
             margin-right: 6px;
+        }
+
+        // 修改伪元素实现hover
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -5px;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 999px;
+            transition: width .4s;
+            background-color: rgba(0,0,0,.3);
+        }
+        &:hover {
+            &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -5px;
+            right: 0;
+            width: 100px;
+            height: 40px;
+            border-radius: 999px;
+            background-color: rgba(0,0,0,.3);
+        }
         }
     }
 }

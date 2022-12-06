@@ -51,23 +51,23 @@ export default class Home extends Vue {
         // }, false)
     }
     startRotate() {
-        let planet = document.querySelector('.planet');
-        let ball = document.querySelector('.ball');
+        let planet = document.querySelector('.planet') as any;
+        let ball = document.querySelector('.ball') as any;
         if (planet && ball) {
             planet.style.animationPlayState = 'running';
             ball.style.animationPlayState = 'running';
         }
     }
     stopRotate() {
-        let planet = document.querySelector('.planet');
-        let ball = document.querySelector('.ball');
+        let planet = document.querySelector('.planet') as any;
+        let ball = document.querySelector('.ball') as any;
         if (planet && ball) {
             planet.style.animationPlayState = 'paused';
             ball.style.animationPlayState = 'paused';
         }
     }
     starSky() {
-        let sky = document.getElementById('sky-header');
+        let sky = document.getElementById('sky-header') as any;
         var screenW = sky.clientWidth;
         var screenH = sky.clientHeight;
         for (var i = 0; i < 40; i++) {
