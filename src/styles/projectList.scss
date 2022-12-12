@@ -113,11 +113,12 @@ button {
    border-radius: 32% 68% 61% 39% / 34% 44% 56% 66% ;
    z-index: 1;
    background: linear-gradient(90deg, rgb(120, 210, 225) 0%, rgb(13, 167, 206) 50%, rgba(219,150,52,1) 100%);
-   animation: borderAnimate 2s infinite;
+   animation: borderAnimate 5s infinite;
   
 
    &:first-child {
     transform: translate(-200px, 210px);
+    animation-delay: 1s;
       &:hover {
         transition: all .5s;
         transform: translate(-100px, 210px) scale(1.5);
@@ -125,6 +126,7 @@ button {
 
    &:nth-child(2) {
     transform: translate(120px, -100px);
+    animation-delay: 2s;
     &:hover {
         transition: all .5s;
         transform: translate(60px, -100px) scale(1.5);
@@ -222,6 +224,9 @@ button {
     0% {
         border-radius: 32% 68% 61% 39% / 34% 44% 56% 66% ;
     }
+    15% {
+        border-radius: 41% 42% 34% 60% / 33% 33% 60% 61% ;
+     }
 
     25% {
        border-radius: 51% 49% 38% 62% / 37% 38% 62% 63% ;

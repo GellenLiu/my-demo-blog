@@ -2,6 +2,10 @@
     <div class="page">
         <myHeader></myHeader>
         <div class="notesbook-page">
+            <div class="website-list">
+               <div class="juejin-blog"></div>
+               <div class="csdn-blog"></div>
+            </div>
             <iframe src="https://blog.csdn.net/weixin_44736005?type=blog"></iframe>
             <!-- <div class="file-list">
                 <div class="tab">
