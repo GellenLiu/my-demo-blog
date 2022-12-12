@@ -481,3 +481,15 @@
     }
     100%{opacity: 0;}
   }
+
+  // 阴影光球
+  .shadow-ball {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #fff,
+    -5px 0 20px #f0f,
+    5px 0 20px #0ff,
+    inset 0 0 10px #fff,inset 10px 0 20px #f0f,
+    inset -10px 0 20px #0ff, inset 10px 0 50px #f0f,inset -10px 0 50px #0ff;
+  }

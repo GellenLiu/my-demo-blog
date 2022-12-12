@@ -40,15 +40,6 @@ export default class Home extends Vue {
     start() {
         let that = this;
         that.$router.push('/projectList');
-
-        // this.showBlackHall = true;
-        // let blackHall = document.getElementById('blackHall');
-        // console.log(blackHall)
-        // blackHall?.addEventListener('animationend', ()=> {
-        //   this.showBlackHall = false;
-        //   that.freshDom = Symbol();
-        //   that.$router.push('/projectList')
-        // }, false)
     }
     startRotate() {
         let planet = document.querySelector('.planet') as any;
