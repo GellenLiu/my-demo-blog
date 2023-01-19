@@ -51,7 +51,8 @@ export default class ShareScreen extends Vue {
     let that = this;
     let captureStream = null;
     try {
-      captureStream = await navigator.mediaDevices.getDisplayMedia(
+      let mediaDevices: any = navigator.mediaDevices;
+      captureStream = await mediaDevices.getDisplayMedia(
         displayMediaOptions
       );
       that.stream = captureStream;

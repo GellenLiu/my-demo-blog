@@ -16,7 +16,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { Message } from 'element-ui';
 import Editor from '@/components/monacoEditor.vue';
-import codes from '@/data/codes/javascript/copy';
+import codes from '@/data/codes/javascript/copy.js';
 import CodeShow from '@/components/CodeShow.vue';
 import DemoInfo from '@/components/DemoInfo.vue';
 

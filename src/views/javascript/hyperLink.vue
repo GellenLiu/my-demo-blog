@@ -16,7 +16,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import { Message } from 'element-ui';
 import Editor from '@/components/monacoEditor.vue';
 let LINK_IDENTIFICATION = 'TElOS19JREVOVElGSUNBVElPTg==';
-import codes from '@/data/codes/javascript/hyperLink';
+import codes from '@/data/codes/javascript/hyperLink.js';
 import CodeShow from '@/components/CodeShow.vue';
 import DemoInfo from '@/components/DemoInfo.vue';
 
