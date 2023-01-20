@@ -5,6 +5,14 @@ import VueI18n from 'vue-i18n';
 
 
 Vue.use(VueI18n);
+
+const LANG_DB_KEY = 'lang';
+const initLang = window.localStorage.getItem(LANG_DB_KEY) || getSystemLang() || 'zh';
+const i18n = new VueI18n({
+    locale: initLang,
+    messages: {zh: zhI18n, en: enI18n}
+});
+
 Vue.use({
     install(Vue, options) {
         Vue.mixin({
@@ -14,13 +22,6 @@ Vue.use({
             }
         });
     }
-});
-
-const LANG_DB_KEY = 'lang';
-const initLang = window.localStorage.getItem(LANG_DB_KEY) || getSystemLang() || 'zh';
-const i18n = new VueI18n({
-    locale: initLang,
-    messages: {zh: zhI18n, en: enI18n}
 });
 
 setLanguage(initLang);
