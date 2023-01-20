@@ -21,7 +21,7 @@ export default class Copy extends Vue {
 
     info: any = {};
     code: string = '';
-    mounted() {
+    created() {
         this.info = this.$route?.meta || this.demoInfo;
         this.code = this.$route?.meta?.code || this.codeContent;
     }

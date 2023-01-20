@@ -88,6 +88,9 @@ export default class TemplateCnp extends Vue {
     mounted() {}
     goRouter(path: string) {
         let that = this;
+        if(path === this.$router.currentRoute.fullPath) {
+            return;
+        }
         that.$router.push(`${path}`);
     }
     goHome() {
