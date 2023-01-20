@@ -9,7 +9,8 @@ const demoRouterList: any = routerListData.map((item: any) => {
   return {
     path: item.path,
     name: item.label,
-    component: () => import(`@/${item.component}`) // 不能全是变量，会报错
+    component: () => import(`@/${item.component}`), // 不能全是变量，会报错
+    meta: item.meta
   }
 });
 

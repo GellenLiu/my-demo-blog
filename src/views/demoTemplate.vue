@@ -1,10 +1,10 @@
 <template>
     <div class="demo-content">
-        <demo-info v-bind="demoInfo"></demo-info>
+        <demo-info slot="info" v-bind="info"></demo-info>
         <div class="demo-wrap">
             <slot></slot>
         </div>
-        <code-show :code="codeContent"></code-show>
+        <code-show slot="code" :code="code"></code-show>
     </div>
 </template>
 <script lang="ts">
@@ -16,14 +16,15 @@ import DemoInfo from '@/components/DemoInfo.vue';
     components: { Editor, CodeShow, DemoInfo }
 })
 export default class Copy extends Vue {
-    @Prop({default: {
-        author: 'gellenliu',
-        likes: '999+',
-        labels: [
-            'javascript'
-        ]
-    }}) demoInfo!: any;
+    @Prop() demoInfo!: any;
     @Prop({default: '暂无代码'}) codeContent!: any;
+
+    info: any = {};
+    code: string = '';
+    mounted() {
+        this.info = this.$route?.meta || this.demoInfo;
+        this.code = this.$route?.meta?.code || this.codeContent;
+    }
 }
 </script>
 <style lang="scss" scoped>
