@@ -4,3 +4,7 @@ declare module '*.vue' {
 }
 
 declare module '*.js'
+declare module '*.json' {
+  const value: any;
+  export default value;
+}

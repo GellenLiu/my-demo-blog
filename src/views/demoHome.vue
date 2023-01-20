@@ -63,7 +63,7 @@
   <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator';
 import HelloWorld from '@/components/HelloWorld.vue';
-import routerListData from '@/data/routerListData.js';
+import routerListData from '@/data/routerListData.json';
 import Header from '@/components/Header.vue';
 
 @Component({
@@ -73,7 +73,7 @@ import Header from '@/components/Header.vue';
     }
 })
 export default class TemplateCnp extends Vue {
-    labelOptions = ['css', 'javascript', 'API', 'Vue', 'canvas'];
+    labelOptions = ['css', 'javascript', 'API', 'Vue', 'canvas', 'h5', 'function'];
     searchValue:string = '';
     showLabelSearch:boolean = false;
     options = [];

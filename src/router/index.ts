@@ -1,9 +1,18 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
-import Home from "../views/Home.vue";
+import Home from "@/views/Home.vue";
 import projectList from '@/views/projectList.vue';
 import demoHome from '@/views/demoHome.vue';
-import copy from '@/views/javascript/copy.vue';
+import routerListData from '@/data/routerListData.json';
+
+const demoRouterList: any = routerListData.map((item: any) => {
+  return {
+    path: item.path,
+    name: item.label,
+    component: () => import(`@/${item.component}`) // 不能全是变量，会报错
+  }
+});
+
 
 Vue.use(VueRouter);
 
@@ -21,37 +30,7 @@ const routes: Array<RouteConfig> = [
   {
     path: "/my-demo-blog",
     component: demoHome,
-    children: [
-      {
-        path: "/copy",
-        component: copy
-      },
-      {
-        path: "/shareScreen",
-        component: () =>
-        import("../views/shareScreen/index.vue")
-      },
-      {
-        path: "/hyperLink",
-        component: () =>
-        import("../views/javascript/hyperLink.vue")
-      }, 
-      {
-        path: "/fileDownload",
-        component: () =>
-        import("../views/javascript/fileDownload.vue")
-      },
-      {
-        path: "/takePhoto",
-        component: () =>
-        import("../views/javascript/takePhoto.vue")
-      },
-      {
-        path: "/overflowShake",
-        component: () =>
-        import("../views/css/overflowShake.vue")
-      }
-    ]
+    children: demoRouterList
   },
   {
       path: "/notesbook",

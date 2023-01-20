@@ -1,0 +1,62 @@
+[
+    {
+        "label": "复制文本",
+        "path": "/copy",
+        "component": "views/shareScreen/index.vue",
+        "meta": {
+            "author": "gellenliu",
+            "likes": "999",
+            "labels": ["javascript"] 
+        }
+    },
+    {
+        "label": "共享屏幕",
+        "path": "/shareScreen",
+        "component": "views/shareScreen/index.vue",
+        "meta": {
+            "author": "gellenliu",
+            "likes": "999",
+            "labels": ["javascript"] 
+        }
+    },
+    {
+        "label": "超链接识别转换",
+        "path": "/hyperLink",
+        "component": "views/javascript/hyperLink.vue",
+        "meta": {
+            "author": "gellenliu",
+            "likes": "999",
+            "labels": ["javascript"] 
+        }
+    },
+    {
+        "label": "摄像头拍照",
+        "path": "/takePhoto",
+        "component": "views/javascript/takePhoto.vue",
+        "meta": {
+            "author": "gellenliu",
+            "likes": "999",
+            "labels": ["javascript"] 
+        }
+    },
+    {
+        "label": "滚动条抖动",
+        "path": "/overflowShake",
+        "component": "views/css/overflowShake.vue",
+        "meta": {
+            "author": "gellenliu",
+            "likes": "999",
+            "labels": ["javascript"] 
+        }
+    },
+    {
+        "label": "移动端软键盘事件",
+        "path": "/h5-keyboardEvent",
+        "component": "views/h5/h5KeyboardEvent.vue",
+        "meta": {
+            "author": "gellenliu",
+            "likes": "999",
+            "labels": ["javascript"] 
+        }
+    }
+]

@@ -1,12 +1,14 @@
 <template>
     <div class="demo-content">
         <demo-info v-bind="demoInfo"></demo-info>
-        <div class="demo-wrap"></div>
+        <div class="demo-wrap">
+            <slot></slot>
+        </div>
         <code-show :code="codeContent"></code-show>
     </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 import Editor from '@/components/monacoEditor.vue';
 import CodeShow from '@/components/CodeShow.vue';
 import DemoInfo from '@/components/DemoInfo.vue';
@@ -14,15 +16,14 @@ import DemoInfo from '@/components/DemoInfo.vue';
     components: { Editor, CodeShow, DemoInfo }
 })
 export default class Copy extends Vue {
-    demoInfo = {
+    @Prop({default: {
         author: 'gellenliu',
         likes: '999+',
         labels: [
             'javascript'
         ]
-    };
-    codeContent = `暂无代码`;
-    mounted() {}
+    }}) demoInfo!: any;
+    @Prop({default: '暂无代码'}) codeContent!: any;
 }
 </script>
 <style lang="scss" scoped>
