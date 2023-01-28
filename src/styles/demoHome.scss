@@ -47,9 +47,25 @@
     // min-height: calc(100vh - 50px);
     //overflow-y: auto;
 }
+.dark {
+    .aside {
+        background-color: #333;
+        color: #f3f5f7;
+        .router-list-item {
+            &:hover {
+                color: #409EFF;
+                background-color: transparent;
+            }
+        }
+    } 
+}
+.demo-content {
+    padding: 20px;
+}
 .aside {
     width: 200px;
     height: 100vh;
+    flex-shrink: 0;
     padding: 15px;
     border-right: 1px solid $border-color-gray;
     background-color: #fafbfc;
@@ -87,7 +103,6 @@
 }
 .content {
     flex: 1;
-    padding: 20px;
 }
 .aside-header {
     ::v-deep input {

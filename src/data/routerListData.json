@@ -2,7 +2,7 @@
     {
         "label": "复制文本",
         "path": "/copy",
-        "component": "views/shareScreen/index.vue",
+        "component": "views/javascript/copy.vue",
         "meta": {
             "author": "gellenliu",
             "likes": "999",
@@ -53,6 +53,27 @@
         "label": "移动端软键盘事件",
         "path": "/h5-keyboardEvent",
         "component": "views/h5/h5KeyboardEvent.vue",
+        "meta": {
+            "author": "gellenliu",
+            "likes": "9999",
+            "labels": ["javascript", "function"] 
+        }
+    }
+    ,
+    {
+        "label": "文件下载",
+        "path": "/file-down",
+        "component": "views/javascript/fileDownload.vue",
+        "meta": {
+            "author": "gellenliu",
+            "likes": "9999",
+            "labels": ["javascript", "function"] 
+        }
+    },
+    {
+        "label": "组件拖拽",
+        "path": "/drag",
+        "component": "views/javascript/drag.vue",
         "meta": {
             "author": "gellenliu",
             "likes": "9999",

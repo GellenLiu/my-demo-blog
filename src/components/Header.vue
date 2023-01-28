@@ -142,6 +142,7 @@ export default class Header extends Vue {
             height: 30px;
             width: 30px;
             margin-right: 6px;
+            filter: contrast(.5);
         }
 
         // 修改伪元素实现hover

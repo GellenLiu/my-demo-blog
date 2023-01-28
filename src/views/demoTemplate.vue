@@ -28,4 +28,9 @@ export default class Copy extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+.demo-content {
+    box-sizing: border-box;
+    padding: 20px;
+    overflow: auto;
+}
 </style>
