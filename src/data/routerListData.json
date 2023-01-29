@@ -79,5 +79,15 @@
             "likes": "9999",
             "labels": ["javascript", "function"] 
         }
+    },
+    {
+        "label": "虚拟列表",
+        "path": "/virtualList",
+        "component": "views/scene/virtualList.vue",
+        "meta": {
+            "author": "gellenliu",
+            "likes": "99999",
+            "labels": ["javascript", "scene"] 
+        }
     }
 ]
