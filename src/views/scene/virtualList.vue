@@ -70,7 +70,8 @@ export default class virtualList extends Vue {
         const start = Math.floor(scrollTop / that.model.itemHeight);
         // 获取可见区域的结束数据索引
         const end = start + vNum;
-        // 计算出可见区域的数据，让vue更新
+        // 计算出可见区域的数据，让vue更新,滚动了一行，start+1，更新数据，本身滚动由start变成了start+1，更新数据后又+1，所以要向下translate -1 回归一行位置。
+        // canvas中用dragImage改变截图位置模拟原生滚动，start+1时候更新数据，最后再改变dragImage截图位置-1回归数据位置。
         that.vData = that.model.data.slice(start, end + that.model.buffSize);
         // 下拉到可视区域，滚动半项时，还是利用了css的滚动效果
         (that.$refs.listRef as any).style.transform = `translate(0, ${start * that.model.itemHeight}px`;

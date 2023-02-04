@@ -89,5 +89,15 @@
             "likes": "99999",
             "labels": ["javascript", "scene"] 
         }
+    },
+    {
+        "label": "轮播图",
+        "path": "/banner-loop",
+        "component": "views/scene/bannerLoop.vue",
+        "meta": {
+            "author": "gellenliu",
+            "likes": "99999",
+            "labels": ["javascript", "scene"] 
+        }
     }
 ]

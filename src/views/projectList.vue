@@ -55,7 +55,7 @@ export default class TemplateCnp extends Vue {
             path: '/notesbook'
         },
         {
-            label: 'Resume',
+            label: '',
             desc: '敬请期待',
             path: ''
         }
